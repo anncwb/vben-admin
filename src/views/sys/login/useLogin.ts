@@ -31,8 +31,10 @@ export function useFormValid<T extends Object = any>(formRef: Ref<any>) {
   async function validForm() {
     const form = unref(formRef);
     if (!form) return;
-    const data = await form.validate();
-    return data as T;
+    try {
+      const data = await form.validate();
+      return data as T;
+    } catch(err) {}
   }
 
   return { validForm };
