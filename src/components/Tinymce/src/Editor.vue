@@ -190,9 +190,7 @@
       onMountedOrActivated(() => {
         tinymceId.value = buildShortUUID('tiny-vue');
         nextTick(() => {
-          setTimeout(() => {
-            initEditor();
-          }, 30);
+          initEditor();
         });
       });
 
@@ -215,7 +213,7 @@
         if (el) {
           el.style.visibility = '';
         }
-        tinymce.init(unref(initOptions));
+        unref(initOptions) && tinymce.init(unref(initOptions));
       }
 
       function initSetup(e) {

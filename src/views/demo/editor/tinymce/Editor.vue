@@ -11,11 +11,10 @@
   </PageWrapper>
 </template>
 <script lang="ts">
-  import { defineComponent, h } from 'vue';
+  import { defineComponent } from 'vue';
   import { BasicForm, FormSchema } from '/@/components/Form/index';
   import { CollapseContainer } from '/@/components/Container/index';
   import { useMessage } from '/@/hooks/web/useMessage';
-  import { Tinymce } from '/@/components/Tinymce/index';
   import { PageWrapper } from '/@/components/Page';
 
   const schemas: FormSchema[] = [
@@ -26,7 +25,9 @@
       defaultValue: 'defaultValue',
       rules: [{ required: true }],
     },
-    {
+    /***
+     * 例子1:
+     * {
       field: 'tinymce',
       component: 'Input',
       label: 'tinymce',
@@ -39,6 +40,20 @@
             model[field] = value;
           },
         });
+      },
+    },
+     *
+     */
+    {
+      field: 'tinymce',
+      component: 'Tinymce',
+      label: 'tinymce',
+      defaultValue: 'defaultValue',
+      rules: [{ required: true }],
+      componentProps: {
+        onChange: (value: string) => {
+          console.log(`value:::${value}`);
+        },
       },
     },
   ];

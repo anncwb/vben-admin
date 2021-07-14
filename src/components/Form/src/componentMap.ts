@@ -26,6 +26,7 @@ import { BasicUpload } from '/@/components/Upload';
 import { StrengthMeter } from '/@/components/StrengthMeter';
 import { IconPicker } from '/@/components/Icon';
 import { CountdownInput } from '/@/components/CountDown';
+import { Tinymce } from '/@/components/Tinymce/index';
 
 const componentMap = new Map<ComponentType, Component>();
 
@@ -59,6 +60,7 @@ componentMap.set('IconPicker', IconPicker);
 componentMap.set('InputCountDown', CountdownInput);
 
 componentMap.set('Upload', BasicUpload);
+componentMap.set('Tinymce', Tinymce);
 
 export function add(compName: ComponentType, component: Component) {
   componentMap.set(compName, component);
